@@ -17,7 +17,7 @@ const TaskWall = ({ match }) => {
   let tasks = project.tasks;
   let taskComp;
   useEffect(() => {
-  }, [tasks,taskComp]);
+  }, []);
   
   const taskRemover = (task)=>{
       tasks = tasks.filter((t)=>t.taskName!==task)
@@ -26,10 +26,10 @@ const TaskWall = ({ match }) => {
           project.tasks = tasks;
         }
       });
-
       localStorage.setItem("projectList",JSON.stringify(projectList));
+      window.location.reload();
   }
-  const taskMaker = ()=>{  
+  let taskMaker = ()=>{  
   taskComp = tasks.map((task) => {
     return (
       <div className={`bg-${task.taskPriority} p-3 shadow-md rounded-2xl`}>
@@ -43,13 +43,6 @@ const TaskWall = ({ match }) => {
               onClick={()=>taskRemover(task.taskName)}
             >
               <TrashIcon className="h-6 w-6" />
-            </button>
-            <button
-              className={`p-2 shadow-md rounded-full ${
-                task.taskPriority === "primary" ? "bg-secondary" : "bg-primary"
-              }`}
-            >
-              <PencilIcon className="h-6 w-6" />
             </button>
           </div>
         </div>

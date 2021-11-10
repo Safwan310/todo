@@ -8,7 +8,7 @@ const MobileNav = () => {
   };
   return (
     <div className="bg-secondary text-primary flex justify-between md:hidden">
-      <Link className="block p-4">DoD</Link>
+      <Link className="block p-4">DoDo</Link>
       <button className="mobile-menu-button p-4 " onClick={handleClick}>
         <svg
           className="h-5 w-5"
